@@ -1,0 +1,17 @@
+{
+  "db": "mongodb://localhost/wing",
+  "redis": {
+    "keyPrefix": "[wing]",
+    "host": "localhost",
+    "port": 6379,
+    "password": "",
+    "db": "0"
+  },
+  "ratelimit": {
+    "max": 1000,
+    "duration": 1000
+  },
+  "unsplash": {
+    "AccessKey": "YOUR_UNSPLASH_ACCESSKEY"
+  }
+}
