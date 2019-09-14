@@ -6,7 +6,6 @@ import { withAdmin } from '@middlewares/permission';
 
 import * as home from '@app/home';
 import * as user from '@app/user';
-import * as role from '@app/role';
 
 export default () => {
   router.get('/health', async ctx => {
@@ -34,12 +33,6 @@ export default () => {
   router.del('/users/:id', withAuthentication(), withAdmin(), user.Controller.delete);
   router.patch('/users/:id/reset/password', withAuthentication(), withAdmin(), user.Controller.resetPassword);
   router.post('/users/:id/login/as', withAuthentication(), withAdmin(), user.Controller.loginAs);
-
-  router.get('/roles', withAuthentication(), role.Controller.Query.get);
-  router.get('/roles/:id', withAuthentication(), role.Controller.Query.retrieve);
-  router.post('/roles', withAuthentication(), role.Controller.Mutation.create);
-  router.put('/roles/:id', withAuthentication(), role.Controller.Mutation.update);
-  router.del('/roles/:id', withAuthentication(), role.Controller.Mutation.delete);
 
   return router.routes();
 }
