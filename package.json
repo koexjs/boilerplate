@@ -5,8 +5,8 @@
   "description": "koejs boilerplate",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "nodemon",
-    "build": "tsc",
+    "dev": "tsc-watch -p tsconfig.json --onSuccess \"node dist/index.js\"",
+    "build": "tsc -p tsconfig.json",
     "check::health": "curl http://127.0.0.1:8000/health >> /dev/null 2>&1 && echo 'ok' || echo 'fail'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -43,6 +43,7 @@
     "koa": "^2.7.0",
     "koa-session": "^5.10.1",
     "mockjs": "^1.0.1-beta3",
+    "module-alias": "^2.2.1",
     "mongoose": "^5.4.19",
     "nanoid": "^2.0.1",
     "node-fetch": "^2.3.0",
@@ -68,7 +69,18 @@
     "nodemon": "^1.18.10",
     "ts-jest": "^24.0.0",
     "ts-node": "^8.0.3",
+    "tsc-watch": "^3.0.1",
     "tsconfig-paths": "^3.8.0",
     "typescript": "^3.3.3333"
-  }
+  },
+  "_moduleAliases": {
+    "@app": "dist/app",
+    "@middlewares": "dist/middlewares",
+    "@services": "dist/services",
+    "@models": "dist/models",
+    "@utils": "dist/utils"
+  },
+  "_moduleDirectories": [
+    "dist"
+  ]
 }

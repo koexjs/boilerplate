@@ -1,3 +1,5 @@
+require('module-alias/register');
+
 import Koa from 'koa';
 import { resolve } from 'path';
 import config from 'config';
